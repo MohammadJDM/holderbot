@@ -58,6 +58,14 @@ while true; do
         fi
     done
 
+    chatid=""
+    while [[ ! "$chatid" =~ ^[0-9]+$ ]]; do
+        read -p "Please enter telegram chatid : " chatid
+        if [[ ! "$chatid" =~ ^[0-9]+$ ]]; then
+            echo "Chat ID must be a number. Please enter a valid number."
+        fi
+    done
+
     token=""
     while [[ -z "$token" || ! "$token" =~ ^[0-9]+:.+$ ]]; do
         read -p "Please enter telegram bot token: " token
